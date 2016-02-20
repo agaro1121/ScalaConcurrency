@@ -12,14 +12,14 @@ public class MainWithOptions {
         String jayZcity = people.get("Shawn")
                 .flatMap(person -> person.getAddress())
                 .flatMap(address -> address.getCity())
-                .orElse("No City Available");
+                .orElse("No City Available for Shawn");
 
         System.out.println(jayZcity);
 
         String city = people.get("Bugs")
                 .flatMap(person -> person.getAddress())
                 .flatMap(address -> address.getCity())
-                .orElse("No City Available");
+                .orElse("No City Available for Bugs");
 
         System.out.println(city);
 
