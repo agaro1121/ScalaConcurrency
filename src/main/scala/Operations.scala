@@ -42,14 +42,25 @@ object Operations {
 
   def getTimeSince(start: Long): Long = System.currentTimeMillis - start
 
-  def playSound {
+  def playBeep {
     val url = getClass.getResource("/beep-04.wav")
     val audioIn = AudioSystem.getAudioInputStream(url)
     val clip = AudioSystem.getClip
     clip.open(audioIn)
     clip.loop(1)
-
     Thread.sleep(100)
+  }
+  def playExplosion {
+    val url = getClass.getResource("/explosion.wav")
+    val audioIn = AudioSystem.getAudioInputStream(url)
+    val clip = AudioSystem.getClip
+    clip.open(audioIn)
+    clip.loop(1)
+    Thread.sleep(300)
+  }
+
+  def errorResult {
+    5 /0
   }
 
 
