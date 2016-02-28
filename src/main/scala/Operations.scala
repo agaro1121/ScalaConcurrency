@@ -1,5 +1,4 @@
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
+import javax.sound.sampled.AudioSystem
 
 object Operations {
 
@@ -42,6 +41,16 @@ object Operations {
   }
 
   def getTimeSince(start: Long): Long = System.currentTimeMillis - start
+
+  def playSound {
+    val url = getClass.getResource("/beep-04.wav")
+    val audioIn = AudioSystem.getAudioInputStream(url)
+    val clip = AudioSystem.getClip
+    clip.open(audioIn)
+    clip.loop(1)
+
+    Thread.sleep(100)
+  }
 
 
 }
