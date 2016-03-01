@@ -4,10 +4,15 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 object Waiting1 {
   def main(args: Array[String]) {
-    val randomStuff = Future{ println("Doing random stuff..."); Thread.sleep(3000); "DONE DOING RANDOM STUFF!"}
 
-    val x = Await.ready(randomStuff,60 seconds)
+    val randomStuff = Future{
+      println("Doing random stuff...")
+      Thread.sleep(3000)
+      "DONE DOING RANDOM STUFF!"
+    }
 
-    println(x.value)
+    val doneWaiting = Await.ready(randomStuff,60 seconds)
+    println(doneWaiting)
+
   }
 }
