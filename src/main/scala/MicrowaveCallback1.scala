@@ -7,12 +7,15 @@ object MicrowaveCallback1 {
 
   def main(args: Array[String]) {
 
-    val microwave = Future{ println("Heating up food..."); Thread.sleep(4000); "DONE!"}
+    println("Heating up food...")
+    val microwave = Future {
+      Thread.sleep(4000); "DONE!"
+    }
 
 
-      microwave onSuccess{
-        case x:String => playBeep ; println(x)
-      }
+    microwave onSuccess {
+      case x: String => playBeep; println(x)
+    }
 
     println("Looks at phone while waiting for food...")
     println("Gets glass of water...")
@@ -22,7 +25,6 @@ object MicrowaveCallback1 {
 
     scala.io.StdIn.readLine()
   }
-
 
 
 }

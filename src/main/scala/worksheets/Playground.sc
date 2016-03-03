@@ -1,0 +1,1 @@
+scala.io.Source.fromURL("http://textfiles.com/stories/wlgirl.txt").getLines().length

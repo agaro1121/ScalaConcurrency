@@ -23,7 +23,7 @@ object Operations {
     Thread.sleep(1000)
     println("establishing a connection...")
     Thread.sleep(3000)
-    println("simply to download my latest stocks :-)")
+    println("simply to download random...stuff :-)")
     Thread.sleep(2000)
     println("Yup...")
     Thread.sleep(1000)

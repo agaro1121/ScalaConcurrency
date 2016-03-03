@@ -16,13 +16,6 @@ public class MainWithOptions {
 
         System.out.println(jayZcity);
 
-        String city = people.get("Bugs")
-                .flatMap(person -> person.getAddress())
-                .flatMap(address -> address.getCity())
-                .orElse("No City Available for Bugs");
-
-        System.out.println(city);
-
     }
 
 
