@@ -3,10 +3,15 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 import Operations.playBeep
 import Operations.playExplosion
+
 object MicrowaveCallback3 {
 
   def main(args: Array[String]) {
-    val microwave = Future{ println("Heating up food..."); Thread.sleep(2000); "DONE!"}
+
+    val microwave = Future{
+      println("Heating up food...")
+      Thread.sleep(2000); "DONE!"
+    }
 
       microwave onComplete{
         case Success(result) => playBeep ; print(result)

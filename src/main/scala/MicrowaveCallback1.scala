@@ -2,7 +2,6 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import Operations.playBeep
 
-
 object MicrowaveCallback1 {
 
   def main(args: Array[String]) {

@@ -9,8 +9,8 @@ object Microwave {
 
     val microwave = Future{ println("Heating up food..."); Thread.sleep(2000); "DONE!"}
 
-    val r = Await.result(microwave,60 seconds)
-    println(r)
+    val result = Await.result(microwave,60 seconds)
+    println(result)
 
   }
 
