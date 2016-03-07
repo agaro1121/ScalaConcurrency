@@ -7,7 +7,11 @@ object Microwave {
 
   def main(args: Array[String]) {
 
-    val microwave = Future{ println("Heating up food..."); Thread.sleep(2000); "DONE!"}
+    val microwave = Future{
+      println("Heating up food...")
+      Thread.sleep(2000)
+      "DONE!"
+    }
 
     val result = Await.result(microwave,60 seconds)
     println(result)

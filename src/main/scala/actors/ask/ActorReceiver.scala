@@ -8,6 +8,5 @@ class ActorReceiver extends Actor {
       println(s"Message received !")
       println(s"Contents: $msg")
       sender ! "I have received your message!"
-      context.parent ! "Done"
   }
 }

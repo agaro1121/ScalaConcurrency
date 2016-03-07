@@ -10,8 +10,9 @@ object MicrowaveCallback3 {
 
     val microwave = Future{
       println("Heating up food...")
-      Thread.sleep(2000)
+      Thread.sleep(1000)
       "DONE!"
+      5/0
     }
 
       microwave onComplete{

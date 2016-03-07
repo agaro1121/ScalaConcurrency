@@ -6,22 +6,19 @@ import akka.util.Timeout
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import scala.util.{Success, Failure}
+import akka.pattern.PipeableFuture
+
 
 class Main extends Actor {
 
   val receiver = context.actorOf(Props[ActorReceiver],"receiver")
+  val tester = context.actorOf(Props[ActorReceiver],"tester")
   implicit val timeout = Timeout(5 seconds)
 
-  val resp = receiver ? "Are you getting this message ?"
 
-  resp onComplete{
-    case Success(something) => println("Receiving Response: " + something)
-    case Failure(error) => println(error)
-  }
-
+  val resp = new PipeableFuture(receiver ? "Are you getting this message ?") pipeTo self
 
   override def receive: Receive = {
-    case "Done" => context.stop(self)
+    case something:String => println(s"Receiving Response: " + something)
   }
 }
