@@ -1,11 +1,9 @@
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import Operations.errorResult
-
 import scala.util.{Failure, Success}
 
 
-object Combinator3 {
+object Callback1 {
 
   def main(args: Array[String]) {
 
@@ -14,12 +12,10 @@ object Combinator3 {
       "Cheats for Mortal Kombat Received!\n" +
         "Up, Up, Down, Down, Left, Right, A, B, A\n" +
         "Everyone wants kool stuff :-)"
-      5/0
     }
 
-    codes onComplete {
-      case Success(something) => println(something)
-      case Failure(error) => println("There was an error")
+    codes onSuccess{
+      case something => println(something)
     }
 
     scala.io.StdIn.readLine()

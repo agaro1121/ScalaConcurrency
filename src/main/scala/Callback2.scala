@@ -3,7 +3,7 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 
-object Combinator2 {
+object Callback2 {
 
   def main(args: Array[String]) {
 
