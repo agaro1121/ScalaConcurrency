@@ -27,18 +27,18 @@ object MonadicFuture4 {
       }
 
 
-    badFuture recover {
+    /*badFuture recover {
       case error => println("Recovering with Default value 6")
-    }
+    }*/
 
-    badFuture
+    /*badFuture
       .recoverWith {
         case t: ArithmeticException => println("Recovering With Example Future\n")
           exampleFuture
       }
       .onComplete {
         x => println("Successfully recoveredWith example Future with value = " + x)
-      }
+      }*/
 
     scala.io.StdIn.readLine()
   }
