@@ -9,12 +9,13 @@ object MicrowaveCallback2 {
 
     val microwave = Future{
       println("Heating up stuff...")
-      Thread.sleep(4000); "DONE!"
+      Thread.sleep(4000)
+      "DONE!"
       errorResult
     }
 
       microwave onFailure{
-        case t => playExplosion ; println("Oh no my chocolate exploded :-(")
+        case t => playExplosion ; println("Oh no my chocolate exploded :-( ")
       }
 
     println("Looks at phone while waiting for food...")
