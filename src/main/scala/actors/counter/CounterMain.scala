@@ -1,18 +1,15 @@
 package actors.counter
 
 import akka.actor.{Props, Actor}
-import akka.actor.Actor.Receive
 
-/**
-  * Created by hierro on 3/2/16.
-  */
 class CounterMain extends Actor{
-  val counter = context.actorOf(Props[Counter],"counter")
+  val counterActor = context.actorOf(Props[Counter],"counter")
+  //counterActor is the ActorRef. A reference to the underlying actor
 
-  counter ! "incr"
-  counter ! "incr"
-  counter ! "incr"
-  counter ! "get"
+  counterActor ! "incr"
+  counterActor ! "incr"
+  counterActor ! "incr"
+  counterActor ! "get"
 
 
   override def receive: Receive = {
