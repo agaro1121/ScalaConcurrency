@@ -1,11 +1,13 @@
 package actors.playground
 
+import java.nio.charset.StandardCharsets
+
 import akka.actor.Actor
 
 class Getter extends Actor {
 
-  def process(url: String) = {
-  val storyLines =  scala.io.Source.fromURL("http://textfiles.com/stories/wlgirl.txt")
+  def process(url: String):(String,Int) = {
+  val storyLines =  scala.io.Source.fromURL(url,StandardCharsets.ISO_8859_1.toString)
       .getLines()
       .toSeq
 
@@ -16,5 +18,7 @@ class Getter extends Actor {
     case url:String =>
       val result = process(url)
       sender ! result
+      context.stop(self)
+
   }
 }

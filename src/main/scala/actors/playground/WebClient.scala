@@ -7,7 +7,6 @@ import org.jsoup.Jsoup
 
 import scala.concurrent.{Future, Promise}
 import scala.collection.JavaConverters._
-import akka.pattern.PipeableFuture
 
 class WebClient {
 
