@@ -3,7 +3,7 @@ import Operations.errorResult
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-object MonadicFuture4 {
+object MonadicFuture6 {
   def main(args: Array[String]) {
 
     val exampleFuture = Future {
@@ -18,12 +18,12 @@ object MonadicFuture4 {
 
 
     badFuture
-      .fallbackTo {
-        println("Falling Back to Example Future\n")
-        exampleFuture
+      .recoverWith {
+        case t: ArithmeticException => println("Recovering With Example Future\n")
+          exampleFuture
       }
       .onComplete {
-        x => println("Successfully fell back to example Future with value = " + x)
+        x => println("Successfully recoveredWith example Future with value = " + x)
       }
 
     scala.io.StdIn.readLine()
